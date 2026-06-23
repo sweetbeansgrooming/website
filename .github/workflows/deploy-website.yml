@@ -40,13 +40,12 @@ jobs:
             --exclude .github/ \
             --exclude scripts/ \
             --exclude gallery_beta/ \
+            --exclude images/desktop.ini \
             --exclude test_delete_me.txt \
             --exclude 1781943682979.png \
             --exclude before_after.jpg \
             --exclude gary_dog.png \
-            --exclude logo_full_black.jpg \
             --exclude logo_full_glow_trans.png \
-            --exclude logo_wordmark.png \
             --exclude logo_google_business_720.png \
             --exclude relaxed.jpg \
             --exclude smiles.jpg \
