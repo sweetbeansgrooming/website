@@ -64,6 +64,6 @@ The validator checks:
 These are local/source/scratch assets and are excluded from the current publish artifact:
 
 - `gallery_beta/`
-- raw logo/photo source files listed in `.gitignore`
+- source photo/logo files listed in `.gitignore`
 - `test_delete_me.txt`
 - `CNAME` until DNS is configured
