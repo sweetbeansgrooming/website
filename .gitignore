@@ -1,3 +1,9 @@
+# Python/build artifacts
+__pycache__/
+*.pyc
+_site/
+test_delete_me.txt
+
 # Raw/source photo + logo assets — optimized derivatives actually used
 # by the site live in images/. Keeping these out of the published repo
 # keeps it small and avoids publishing un-cropped originals.
