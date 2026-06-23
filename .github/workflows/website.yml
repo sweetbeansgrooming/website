@@ -8,7 +8,7 @@ on:
 
 jobs:
   validate:
-    name: Validate static website
+    name: validate static websites
     runs-on: ubuntu-latest
 
     steps:
