@@ -53,21 +53,12 @@ class LinkParser(html.parser.HTMLParser):
 
 
 def iter_published_files(root: Path) -> list[Path]:
-    ignored_parts = {".git", ".github", "scripts", "gallery_beta"}
+    ignored_parts = {".git", ".github", "scripts", "archive"}
     ignored_names = {
-        "test_delete_me.txt",
         "CNAME",  # kept for later DNS, excluded from current Pages artifact.
-        "desktop.ini",
-        "1781943682979.png",
-        "before_after.jpg",
-        "gary_dog.png",
-        "logo_full_glow_trans.png",
-        "logo_google_business_720.png",
-        "relaxed.jpg",
-        "smiles.jpg",
-        "sweet beans.png",
     }
     files: list[Path] = []
+
     for path in root.rglob("*"):
         if not path.is_file():
             continue
