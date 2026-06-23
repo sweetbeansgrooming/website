@@ -61,9 +61,7 @@ The validator checks:
 
 ## Files intentionally not published
 
-These are local/source/scratch assets and are excluded from the current publish artifact:
+These are retained under `archive/` and excluded from the current publish artifact:
 
-- `gallery_beta/`
-- source photo/logo files listed in `.gitignore`
-- `test_delete_me.txt`
+- `archive/unused-assets-2026-06-23/`
 - `CNAME` until DNS is configured
