@@ -94,9 +94,10 @@ def resolve_local_target(root: Path, html_file: Path, raw_url: str) -> tuple[Pat
     parsed = urlparse(url_no_fragment)
     if parsed.scheme.lower() in SKIP_SCHEMES or parsed.netloc:
         return None, fragment
-    if not url_no_fragment:
+    path_only = parsed.path
+    if not path_only:
         return html_file, fragment
-    decoded = unquote(url_no_fragment)
+    decoded = unquote(path_only)
     if decoded.startswith("/"):
         target = root / decoded.lstrip("/")
     else:

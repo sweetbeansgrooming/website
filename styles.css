@@ -1,6 +1,6 @@
 /* ==========================================================================
-   Sweet Beans Grooming — Design System v3
-   "Refined Professional" — black & gold boutique identity, restructured
+   Sweet Beans Grooming: Design System v3
+   "Refined Professional": black & gold boutique identity, restructured
    around clear trust signals, scannable structure, and measured typography
    for a polished local-service business presence in Seattle.
    ========================================================================== */
@@ -96,9 +96,16 @@ p { margin: 0 0 1em; color: var(--muted); }
 }
 .eyebrow::before {
   content: "";
-  width: 18px; height: 1px;
+  width: 14px; height: 14px;
   background: var(--gold-dark);
   display: inline-block;
+  flex-shrink: 0;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cellipse cx='12' cy='16' rx='6.2' ry='5.4'/%3E%3Cellipse cx='5.2' cy='8.6' rx='2.6' ry='3.2' transform='rotate(-18 5.2 8.6)'/%3E%3Cellipse cx='10.4' cy='4.8' rx='2.5' ry='3.1' transform='rotate(-6 10.4 4.8)'/%3E%3Cellipse cx='15.8' cy='4.9' rx='2.5' ry='3.1' transform='rotate(6 15.8 4.9)'/%3E%3Cellipse cx='20.6' cy='8.7' rx='2.6' ry='3.2' transform='rotate(18 20.6 8.7)'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cellipse cx='12' cy='16' rx='6.2' ry='5.4'/%3E%3Cellipse cx='5.2' cy='8.6' rx='2.6' ry='3.2' transform='rotate(-18 5.2 8.6)'/%3E%3Cellipse cx='10.4' cy='4.8' rx='2.5' ry='3.1' transform='rotate(-6 10.4 4.8)'/%3E%3Cellipse cx='15.8' cy='4.9' rx='2.5' ry='3.1' transform='rotate(6 15.8 4.9)'/%3E%3Cellipse cx='20.6' cy='8.7' rx='2.6' ry='3.2' transform='rotate(18 20.6 8.7)'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }
 .section-dark .eyebrow, .on-dark .eyebrow { color: var(--gold); }
 .section-dark .eyebrow::before, .on-dark .eyebrow::before { background: var(--gold); }
@@ -243,7 +250,7 @@ p { margin: 0 0 1em; color: var(--muted); }
 .nav-links a:hover, .nav-links a.active { color: var(--cream); }
 .nav-links a:hover::after, .nav-links a.active::after { right: 0; }
 .nav-cta { display: flex; align-items: center; gap: 20px; }
-.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0; }
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 9px; margin: -9px; }
 @media (max-width: 859px) { .nav-links { display: none; } .nav-toggle { display: block; } }
 
 /* --- Mobile nav panel --- */
@@ -308,6 +315,34 @@ p { margin: 0 0 1em; color: var(--muted); }
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.hero-panel.logo-fill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 56px 40px;
+  text-align: center;
+}
+.hero-logo {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  filter: drop-shadow(0 14px 32px rgba(0,0,0,0.4));
+}
+.hero-divider {
+  width: 44px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--gold);
+}
+.hero-kicker {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(247,243,233,0.72);
 }
 .panel-caption {
   position: absolute;
@@ -400,7 +435,7 @@ p { margin: 0 0 1em; color: var(--muted); }
   text-transform: uppercase;
   color: var(--gold);
 }
-.section-light .quote-attrib, .section-alt .quote-attrib { color: var(--gold-dark); }
+.section-light .quote-attrib, .section-alt .quote-attrib { color: var(--gold-deep); }
 
 /* --- Real results (before/after photo) --- */
 .results-frame {
@@ -566,11 +601,10 @@ p { margin: 0 0 1em; color: var(--muted); }
   border-radius: var(--radius);
   padding: 32px 36px;
 }
-.addon-row { display: flex; align-items: baseline; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.addon-row { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 14px 0; border-bottom: 1px solid rgba(107,98,84,0.18); }
 .addon-row:last-child { border-bottom: none; }
 .addon-row .name { font-weight: 600; font-size: 1rem; }
-.addon-row .leader { flex: 1; border-bottom: 1px dotted var(--muted); margin-bottom: 5px; opacity: .5; }
-.addon-row .price { font-family: var(--font-display); color: var(--gold-dark); font-size: 1.05rem; }
+.addon-row .price { font-family: var(--font-display); color: var(--gold-deep); font-size: 1.05rem; }
 .addon-row .price small { font-family: var(--font-body); font-size: 0.7rem; color: var(--muted); }
 
 /* --- Process steps --- */
@@ -656,6 +690,62 @@ p { margin: 0 0 1em; color: var(--muted); }
 .faq-icon svg { width: 12px; height: 12px; color: var(--gold-dark); }
 .faq-item[open] .faq-icon { transform: rotate(45deg); border-color: var(--gold); }
 .faq-item p { margin: 16px 0 0; font-size: 0.94rem; }
+
+/* --- Care guide (nail trims + bath/groom chart) --- */
+.care-tip {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-bottom: 48px;
+}
+.care-tip .icon {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: var(--gold-tint);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.care-tip .icon svg { width: 21px; height: 21px; color: var(--gold-dark); }
+.care-tip h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.care-tip p { margin: 0; font-size: 0.93rem; }
+@media (max-width: 560px) { .care-tip { flex-direction: column; padding: 24px; } }
+
+.care-chart {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--white);
+}
+.care-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1.4fr;
+  gap: 16px;
+  padding: 16px 28px;
+  border-bottom: 1px solid var(--line);
+  align-items: center;
+}
+.care-row:last-child { border-bottom: none; }
+.care-row.head {
+  background: var(--ink);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.care-row .breed { font-weight: 600; color: var(--ink); font-size: 0.92rem; }
+.care-row.head .breed, .care-row.head span { color: var(--gold); }
+.care-row span:not(.breed) { font-size: 0.86rem; color: var(--muted); }
+.care-chart-note { margin-top: 16px; font-size: 0.82rem; color: var(--muted); }
+@media (max-width: 760px) {
+  .care-row { grid-template-columns: 1fr; gap: 4px; padding: 18px 22px; }
+  .care-row.head { display: none; }
+  .care-row .breed { font-size: 1rem; margin-bottom: 6px; }
+  .care-row span:not(.breed)::before { content: attr(data-label) ": "; font-weight: 600; color: var(--ink); }
+}
 
 /* --- Visit / map --- */
 .visit-grid {
@@ -753,6 +843,32 @@ p { margin: 0 0 1em; color: var(--muted); }
   font-size: 0.8rem; color: var(--muted-dark);
 }
 
+/* --- Booking page (Cal.com embed) --- */
+.booking-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  padding: 6px;
+}
+.booking-embed {
+  width: 100%;
+  min-height: 480px;
+  overflow: hidden;
+  border-radius: calc(var(--radius-lg) - 6px);
+}
+.booking-embed iframe {
+  display: block;
+  width: 100%;
+}
+@media (max-width: 480px) {
+  .booking-embed { min-height: 620px; }
+}
+
 /* --- Reveal animation --- */
 .fade-up { opacity: 0; transform: translateY(22px); transition: opacity 0.6s cubic-bezier(.2,.7,.2,1), transform 0.6s cubic-bezier(.2,.7,.2,1); }
 .fade-up.in { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .fade-up { opacity: 1; transform: none; transition: none; }
+}
