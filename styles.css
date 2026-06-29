@@ -449,6 +449,7 @@ p { margin: 0 0 1em; color: var(--muted); }
 }
 .results-frame img {
   width: 100%;
+  height: auto;
   display: block;
 }
 
