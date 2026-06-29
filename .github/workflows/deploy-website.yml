@@ -42,8 +42,6 @@ jobs:
             --exclude archive/ \
             --exclude _site/
 
-          # When sweetbeansgrooming.com DNS is ready, remove this line so CNAME deploys.
-          rm -f _site/CNAME
           touch _site/.nojekyll
 
       - name: Configure GitHub Pages

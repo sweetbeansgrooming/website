@@ -34,15 +34,15 @@ After the PR checks pass, merge to `main`. The deploy workflow publishes the sit
 
 ## DNS / custom domain
 
-`CNAME` is kept for the future custom domain:
+`CNAME` publishes with every deploy and points at the custom domain:
 
 ```text
-sweetbeansgrooming.com
+www.sweetbeansgrooming.com
 ```
 
-DNS is not configured yet, so the deploy workflow currently removes `CNAME` from the Pages artifact. Until DNS is ready, the site should publish on the default GitHub Pages URL.
+DNS for `www.sweetbeansgrooming.com` should be a CNAME record pointing to `sweetbeansgrooming.github.io`. The apex domain (`sweetbeansgrooming.com`) redirects to `www` at the DNS provider, outside of GitHub Pages.
 
-When DNS is ready, remove the `rm -f _site/CNAME` line from `.github/workflows/deploy-website.yml` so GitHub Pages claims the custom domain.
+After DNS resolves, confirm the custom domain in the repo's Settings -> Pages -> Custom domain field, then enable "Enforce HTTPS" once the certificate is issued.
 
 ## Local validation
 
@@ -64,4 +64,3 @@ The validator checks:
 These are retained under `archive/` and excluded from the current publish artifact:
 
 - `archive/unused-assets-2026-06-23/`
-- `CNAME` until DNS is configured
