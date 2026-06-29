@@ -54,9 +54,7 @@ class LinkParser(html.parser.HTMLParser):
 
 def iter_published_files(root: Path) -> list[Path]:
     ignored_parts = {".git", ".github", "scripts", "archive"}
-    ignored_names = {
-        "CNAME",  # kept for later DNS, excluded from current Pages artifact.
-    }
+    ignored_names: set[str] = set()
     files: list[Path] = []
 
     for path in root.rglob("*"):
