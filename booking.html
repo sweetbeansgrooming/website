@@ -227,6 +227,18 @@
       "hideEventTypeDetails": false,
       "layout": "month_view"
     });
+
+    Cal.ns["sweetBeansBooking"]("on", {
+      action: "bookingSuccessful",
+      callback: function (e) {
+        if (typeof gtag === 'function') {
+          gtag('event', 'booking_completed', {
+            event_category: 'booking',
+            event_label: e.detail && e.detail.data && e.detail.data.eventType ? e.detail.data.eventType.title : 'unknown'
+          });
+        }
+      }
+    });
   })();
 </script>
 </body>
