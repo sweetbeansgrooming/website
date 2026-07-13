@@ -867,22 +867,26 @@ p { margin: 0 0 1em; color: var(--muted); }
 
 /* --- Booking page (Cal.com embed) --- */
 .booking-card {
-  background: var(--white);
-  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(201,166,70,0.12), rgba(201,166,70,0) 34%),
+    var(--ink);
+  border: 1px solid rgba(201,166,70,0.28);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow);
+  box-shadow: 0 22px 58px rgba(14,12,9,.24);
   overflow: hidden;
-  padding: 6px;
+  padding: 8px;
 }
 .booking-embed {
   width: 100%;
   min-height: 480px;
   overflow: hidden;
-  border-radius: calc(var(--radius-lg) - 6px);
+  border-radius: calc(var(--radius-lg) - 8px);
+  background: var(--cream);
 }
 .booking-embed iframe {
   display: block;
   width: 100%;
+  background: var(--cream);
 }
 @media (max-width: 480px) {
   .booking-embed { min-height: 620px; }
