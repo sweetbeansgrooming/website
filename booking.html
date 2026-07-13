@@ -223,7 +223,19 @@
     });
     Cal.ns["sweetBeansBooking"]("ui", {
       "theme": "light",
-      "cssVarsPerTheme": { "light": { "cal-brand": "#C9A646" }, "dark": { "cal-brand": "#C9A646" } },
+      "styles": { "branding": { "brandColor": "#C9A646" } },
+      "cssVarsPerTheme": {
+        "light": {
+          "cal-brand": "#C9A646",
+          "cal-brand-emphasis": "#A4822F",
+          "cal-bg": "#FAF8F2",
+          "cal-bg-emphasis": "#F1EAD9",
+          "cal-border": "#E3DAC2",
+          "cal-text": "#0E0C09",
+          "cal-text-muted": "#6B6254"
+        },
+        "dark": { "cal-brand": "#C9A646" }
+      },
       "hideEventTypeDetails": false,
       "layout": "month_view"
     });
