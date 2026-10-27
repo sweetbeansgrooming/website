@@ -240,16 +240,30 @@
       "layout": "month_view"
     });
 
-    Cal.ns["sweetBeansBooking"]("on", {
-      action: "bookingSuccessful",
-      callback: function (e) {
-        if (typeof gtag === 'function') {
-          gtag('event', 'booking_completed', {
-            event_category: 'booking',
-            event_label: e.detail && e.detail.data && e.detail.data.eventType ? e.detail.data.eventType.title : 'unknown'
-          });
-        }
-      }
+    // Booking funnel for Google Analytics: where people stop between "clicked Book" and "booked".
+    // Each step is sent at most once per page load. Only the step name and the service name are sent -- nothing the visitor types.
+    var sent = {};
+    function track(name, label) {
+      if (sent[name] || typeof gtag !== 'function') return;
+      sent[name] = true;
+      gtag('event', name, { event_category: 'booking', event_label: label || 'unknown' });
+    }
+    function on(action, callback) {
+      Cal.ns["sweetBeansBooking"]("on", { action: action, callback: callback });
+    }
+    function data(e) { return (e && e.detail && e.detail.data) || {}; }
+
+    on("eventTypeSelected", function (e) {
+      var t = data(e).eventType;
+      track('booking_service_selected', t && t.title);
+    });
+    on("bookerViewed", function (e) { track('booking_calendar_viewed', data(e).eventSlug); });
+    on("linkFailed", function (e) { track('booking_calendar_failed', String(data(e).code || 'unknown')); });
+    // bookingSuccessfulV2 replaces bookingSuccessful; listen to both, count the booking once.
+    on("bookingSuccessfulV2", function (e) { track('booking_completed', data(e).title); });
+    on("bookingSuccessful", function (e) {
+      var t = data(e).eventType;
+      track('booking_completed', t && t.title);
     });
   })();
 </script>
